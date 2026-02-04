@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background Colors */
+    --color-background: #FEFEFE; /* soft-white */
+    --color-foreground: #1F2937; /* gray-800 */
+    
+    /* Surface Colors */
+    --color-card: #F8FAFC; /* slate-50 */
+    --color-card-foreground: #1F2937; /* gray-800 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1F2937; /* gray-800 */
+    
+    /* Muted Colors */
+    --color-muted: #F8FAFC; /* slate-50 */
+    --color-muted-foreground: #6B7280; /* gray-500 */
+    
+    /* Border & Input */
+    --color-border: rgba(107, 70, 193, 0.2); /* purple-700/20 */
+    --color-input: #F8FAFC; /* slate-50 */
+    --color-ring: #6B46C1; /* purple-700 */
+    
+    /* Primary Colors */
+    --color-primary: #6B46C1; /* purple-700 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #A78BFA; /* purple-400 */
+    --color-secondary-foreground: #1F2937; /* gray-800 */
+    
+    /* Accent Colors */
+    --color-accent: #F59E0B; /* amber-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Destructive Colors */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Success Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error Colors */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Additional Brand Colors */
+    --color-brand-violet: #8A2BE2; /* blue-violet */
+    --color-brand-violet-foreground: #FFFFFF; /* white */
+    --color-brand-medium-purple: #9370DB; /* medium-purple */
+    --color-brand-medium-purple-foreground: #FFFFFF; /* white */
+    --color-brand-coral: #FF6B6B; /* coral-red */
+    --color-brand-coral-foreground: #FFFFFF; /* white */
+    --color-brand-turquoise: #4ECDC4; /* turquoise */
+    --color-brand-turquoise-foreground: #1F2937; /* gray-800 */
+    --color-brand-emerald: #27AE60; /* emerald-green */
+    --color-brand-emerald-foreground: #FFFFFF; /* white */
+    
+    /* Typography */
+    --font-headline: 'Source Serif 4', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-cta: 'Outfit', sans-serif;
+    --font-accent: 'JetBrains Mono', monospace;
+    
+    /* Spacing */
+    --spacing-base: 8px;
+    --spacing-rhythm: 24px;
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(107, 70, 193, 0.1);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    
+    /* Border Radius */
+    --radius-base: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    
+    /* Transitions */
+    --transition-base: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+  
+  button {
+    @apply font-cta;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .transition-smooth {
+    transition: all var(--transition-base);
+  }
+  
+  .shadow-brand {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .gradient-light {
+    background: radial-gradient(circle at 30% 20%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+  }
+  
+  .warm-image {
+    filter: sepia(10%) saturate(110%) brightness(105%);
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus Visible Styles */
+@layer base {
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
