@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Header from '@/components/common/Header';
+import Header from '@/components/common/header';
 import HeroSection from './components/HeroSection';
 import QuickAccessTiles from './components/QuickAccessTiles';
 import CampaignCountdown from './components/CampaignCountdown';
